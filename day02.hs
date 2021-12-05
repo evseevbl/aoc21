@@ -47,10 +47,3 @@ both a b = case (a, b) of
 	(Nothing, _) -> Nothing
 	(_, Nothing) -> Nothing
 	(Just a, Just b) -> Just (a, b)
-
-_task02a :: [Move] -> Int -> Int -> (Int, Int)
-_task02a [] x y = (x, y)
-_task02a moves x y =
-	let
-		(dx, dy) = getCoords (head moves)
-	in _task02a (tail moves) (x+dx) (y+dy)
