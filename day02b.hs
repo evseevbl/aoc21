@@ -17,7 +17,7 @@ posDiff :: Move -> Int -> Int -> Int -> (Int, Int, Int)
 posDiff m x y a = case m of
 	(Up, t) -> (x, y, a - t)
 	(Down, t) -> (x, y, a + t)
-	(Forward, t) -> (x+a, y+a*t, a)
+	(Forward, t) -> (x+t, y+a*t, a)
 
 task02b :: [Move] -> Int
 task02b moves =
@@ -26,6 +26,6 @@ task02b moves =
 
 main = do
 	vals <- getStrings
-	(putStrLn . show . abs . task02b . mapMaybe parseMove ) vals
+	(putStrLn . show . task02b . mapMaybe parseMove ) vals
 
 
